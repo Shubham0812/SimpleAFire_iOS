@@ -22,11 +22,7 @@ class ViewController: UIViewController {
 //            print(results, results.count)
 //        }
         
-        let resource = Resource(id: 435, userId: 8, title: "Demo Resource", body: "A dummy resource for Medium Post")
-        
-        APIManager.postResource(res: resource)
+        APIManager.postResource(res: Resource(id: 435, userId: 8, title: "Demo Resource", body: "A dummy resource for Medium Post"))
     }
-
-
 }
 

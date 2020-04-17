@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,9 +13,12 @@
 		51C384CF244A0375001E6285 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C384CD244A0375001E6285 /* Main.storyboard */; };
 		51C384D1244A0376001E6285 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51C384D0244A0376001E6285 /* Assets.xcassets */; };
 		51C384D4244A0376001E6285 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C384D2244A0376001E6285 /* LaunchScreen.storyboard */; };
+		51C384DC244A09E8001E6285 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C384DB244A09E8001E6285 /* APIManager.swift */; };
+		88A32BE93BDC3094FDB48AD4 /* Pods_SimpleAFire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B73B03A85D013CDA3E2A7B /* Pods_SimpleAFire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00B73B03A85D013CDA3E2A7B /* Pods_SimpleAFire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleAFire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51C384C4244A0375001E6285 /* SimpleAFire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleAFire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51C384C7244A0375001E6285 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51C384C9244A0375001E6285 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,9 @@
 		51C384D0244A0376001E6285 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51C384D3244A0376001E6285 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51C384D5244A0376001E6285 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51C384DB244A09E8001E6285 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		72A6815F856A59F3739F65E5 /* Pods-SimpleAFire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleAFire.release.xcconfig"; path = "Target Support Files/Pods-SimpleAFire/Pods-SimpleAFire.release.xcconfig"; sourceTree = "<group>"; };
+		DAEE8892C8AD907C77F27913 /* Pods-SimpleAFire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleAFire.debug.xcconfig"; path = "Target Support Files/Pods-SimpleAFire/Pods-SimpleAFire.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88A32BE93BDC3094FDB48AD4 /* Pods_SimpleAFire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +49,8 @@
 			children = (
 				51C384C6244A0375001E6285 /* SimpleAFire */,
 				51C384C5244A0375001E6285 /* Products */,
+				BB6B619B7D5D406E01917B17 /* Pods */,
+				6866A5BE8A31D1E942C13A61 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +72,26 @@
 				51C384D0244A0376001E6285 /* Assets.xcassets */,
 				51C384D2244A0376001E6285 /* LaunchScreen.storyboard */,
 				51C384D5244A0376001E6285 /* Info.plist */,
+				51C384DB244A09E8001E6285 /* APIManager.swift */,
 			);
 			path = SimpleAFire;
+			sourceTree = "<group>";
+		};
+		6866A5BE8A31D1E942C13A61 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				00B73B03A85D013CDA3E2A7B /* Pods_SimpleAFire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BB6B619B7D5D406E01917B17 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DAEE8892C8AD907C77F27913 /* Pods-SimpleAFire.debug.xcconfig */,
+				72A6815F856A59F3739F65E5 /* Pods-SimpleAFire.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 51C384D8244A0376001E6285 /* Build configuration list for PBXNativeTarget "SimpleAFire" */;
 			buildPhases = (
+				8B9547F6F89758DC29F554F0 /* [CP] Check Pods Manifest.lock */,
 				51C384C0244A0375001E6285 /* Sources */,
 				51C384C1244A0375001E6285 /* Frameworks */,
 				51C384C2244A0375001E6285 /* Resources */,
+				1F5C6C6E2793C06DEFF3E3BC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,6 +162,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1F5C6C6E2793C06DEFF3E3BC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SimpleAFire/Pods-SimpleAFire-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SimpleAFire/Pods-SimpleAFire-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimpleAFire/Pods-SimpleAFire-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B9547F6F89758DC29F554F0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SimpleAFire-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		51C384C0244A0375001E6285 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,6 +211,7 @@
 			files = (
 				51C384CC244A0375001E6285 /* ViewController.swift in Sources */,
 				51C384C8244A0375001E6285 /* AppDelegate.swift in Sources */,
+				51C384DC244A09E8001E6285 /* APIManager.swift in Sources */,
 				51C384CA244A0375001E6285 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +354,7 @@
 		};
 		51C384D9244A0376001E6285 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAEE8892C8AD907C77F27913 /* Pods-SimpleAFire.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +373,7 @@
 		};
 		51C384DA244A0376001E6285 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72A6815F856A59F3739F65E5 /* Pods-SimpleAFire.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
