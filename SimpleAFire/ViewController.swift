@@ -9,20 +9,35 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
-//        APIManager.getResource(resourceID: 1) { (res) in
-//            print(res)
-//        }
+        // GET Single Resource
+        APIManager.getResource(resourceID: 1) { (response) in
+            print(response)
+        }
+        // GET All Resources
+        APIManager.getAllResources { (resources) in
+            print(resources, resources.count)
+        }
         
-//        APIManager.getAllResources { (results) in
-//            print(results, results.count)
-//        }
+        // POST a Resource
+        APIManager.postResource(res: Resource(id: 435, userId: 8, title: "Demo Resource", body: "A dummy resource for Medium Post")) { (response) in
+            print("API Response", response)
+        }
         
-        APIManager.postResource(res: Resource(id: 435, userId: 8, title: "Demo Resource", body: "A dummy resource for Medium Post"))
+        /* Calling the Generic API function - Pass the URLRequestConvertible defined and the Model
+           in which we want the result of the API to be mapped.
+        */
+        APIManager.fetchData(urlRequest: APIManager.getResource(resourceId: 1)){ (res: Resource) in
+            print("API Responce", res)
+        }
     }
 }
+
+
+
+
+
 
