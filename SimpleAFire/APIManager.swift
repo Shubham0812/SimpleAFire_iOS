@@ -18,12 +18,12 @@ struct Resource: Decodable {
     let body: String
 }
 
-// creating an enum which contains the API Information
+// creating an enum which contains the API requests and it's calling function
 enum APIManager: URLRequestConvertible {
     
     static let endpoint = URL(string: "https://jsonplaceholder.typicode.com")!
     
-    // creating cases for each API call
+    // creating cases for each API request
     case getResource(resourceId: Int)
     case getAllResources
     case createResource(res: Resource)
@@ -36,7 +36,7 @@ enum APIManager: URLRequestConvertible {
             return "/posts/\(resourceId)"
         case .getAllResources:
             return "/posts"
-        // for post call a parameter has to passed using _ because it's not needed in the endpoint
+        // for this post call we do not need to add anything to the path so we use _
         case .createResource(_):
             return "/posts"
         }
@@ -86,9 +86,7 @@ enum APIManager: URLRequestConvertible {
         return request
     }
     
-    
     //MARK:- functions for calling the API's
-    
     // GET API - To get a particular resource
     static func getResource(resourceID: Int, onCompletion: @escaping (Resource) -> Void) {
         AF.request(APIManager.getResource(resourceId: resourceID)).responseJSON {(json) in
