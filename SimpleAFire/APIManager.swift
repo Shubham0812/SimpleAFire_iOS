@@ -89,28 +89,47 @@ enum APIManager: URLRequestConvertible {
     //MARK:- functions for calling the API's
     // GET API - To get a particular resource
     static func getResource(resourceID: Int, onCompletion: @escaping (Resource) -> Void) {
-        AF.request(APIManager.getResource(resourceId: resourceID)).responseJSON {(json) in
-            let jsonDecoder = JSONDecoder()
-            let jsonData = try! JSONSerialization.data(withJSONObject: json.value!, options: .sortedKeys)
-            let resource = try! jsonDecoder.decode(Resource.self, from: jsonData)
-            onCompletion(resource)
+        AF.request(APIManager.getResource(resourceId: resourceID)).response {(json) in
+            if let jsonData = json.data {
+                let jsonDecoder = JSONDecoder()
+                let resource = try! jsonDecoder.decode(Resource.self, from: jsonData)
+                onCompletion(resource)
+            }
         }
     }
     
     // GET API - To get all the resources
     static func getAllResources(onCompletion: @escaping ([Resource]) -> Void) {
         AF.request(APIManager.getAllResources).responseJSON {(json) in
-            let jsonDecoder = JSONDecoder()
-            let jsonData = try! JSONSerialization.data(withJSONObject: json.value!, options: .sortedKeys)
-            let resources = try! jsonDecoder.decode([Resource].self, from: jsonData)
-            onCompletion(resources)
+            if let jsonData = json.data {
+                let jsonDecoder = JSONDecoder()
+                let resources = try! jsonDecoder.decode([Resource].self, from: jsonData)
+                onCompletion(resources)
+            }
         }
     }
     
-    // POST API - passing resource Model to the function
-    static func postResource(res: Resource ) {
+    // POST API - Passing resource to create a resource
+    static func postResource(res: Resource, onCompletion: @escaping (Bool) -> Void) {
         AF.request(APIManager.createResource(res: res)).responseJSON {(json) in
-            print("Result", json.result)
+            switch json.result {
+            case .success:
+                onCompletion(true)
+            case .failure(let error):
+                print(error)
+                onCompletion(false)
+            }
+        }
+    }
+    
+    // Generic Function - Takes a URLRequestConvertible defined above and the Model in which we return the data
+    static func fetchData<T: Decodable>(urlRequest: URLRequestConvertible, onCompletion: @escaping (T) -> ()) {
+        AF.request(urlRequest).responseJSON { (json) in
+            if let jsonData = json.data {
+                let jsonDecoder = JSONDecoder()
+                let fetchedData = try! jsonDecoder.decode(T.self, from: jsonData)
+                onCompletion(fetchedData)
+            }
         }
     }
 }
